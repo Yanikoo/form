@@ -1,51 +1,53 @@
 <template>
   <form @submit.prevent="saveForm">
-    <div>
-      <label>Город:</label>
-      <select v-model="selectedCity" @change="updateWorkshops">
-        <option v-for="city in cities" :key="city.id" :value="city.id">
-          {{ city.name }}
-        </option>
-      </select>
+    <div class="container">
+      <div class="form-group">
+        <label class="lab">Город:</label>
+        <select v-model="selectedCity" @change="updateWorkshops">
+          <option v-for="city in cities" :key="city.id" :value="city.id">
+            {{ city.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">Цех:</label>
+        <select v-model="selectedWorkshop" @change="updateEmployees">
+          <option v-for="workshop in filteredWorkshops" :key="workshop.id" :value="workshop.id">
+            {{ workshop.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">Сотрудник:</label>
+        <select v-model="selectedEmployee">
+          <option v-for="employee in filteredEmployees" :key="employee.id" :value="employee.id">
+            {{ employee.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">Бригада:</label>
+        <select v-model="selectedBrigade">
+          <option v-for="brigade in brigades" :key="brigade.id" :value="brigade.id">
+            {{ brigade.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">Смена:</label>
+        <select v-model="selectedShift">
+          <option v-for="shift in shifts" :key="shift.id" :value="shift.id">
+            {{ shift.name }}
+          </option>
+        </select>
+      </div>
     </div>
 
-    <div>
-      <label>Цех:</label>
-      <select v-model="selectedWorkshop" @change="updateEmployees">
-        <option v-for="workshop in filteredWorkshops" :key="workshop.id" :value="workshop.id">
-          {{ workshop.name }}
-        </option>
-      </select>
-    </div>
-
-    <div>
-      <label>Сотрудник:</label>
-      <select v-model="selectedEmployee">
-        <option v-for="employee in filteredEmployees" :key="employee.id" :value="employee.id">
-          {{ employee.name }}
-        </option>
-      </select>
-    </div>
-
-    <div>
-      <label>Бригада:</label>
-      <select v-model="selectedBrigade">
-        <option v-for="brigade in brigades" :key="brigade.id" :value="brigade.id">
-          {{ brigade.name }}
-        </option>
-      </select>
-    </div>
-
-    <div>
-      <label>Смена:</label>
-      <select v-model="selectedShift">
-        <option v-for="shift in shifts" :key="shift.id" :value="shift.id">
-          {{ shift.name }}
-        </option>
-      </select>
-    </div>
-
-    <button type="submit">Сохранить</button>
+    <button class="btn" type="submit">Сохранить</button>
   </form>
 </template>
 
@@ -153,7 +155,36 @@ export default {
 </script>
 
 <style scoped>
-form div {
+.form-group {
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lab {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #000;
+}
+.btn {
+  border-radius: 12px;
+  border: none;
+  box-shadow: #a9eba9 0px 3px 1px 0px;
+  font-size: 20px;
+  color: #ffffff;
+  background: green;
+  cursor: pointer;
+  margin-top: 20px;
+
+  &:hover {
+    background: #75d8a2;
+    color: #d4eee0;
+  }
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
