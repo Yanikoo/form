@@ -2,6 +2,8 @@
   <form @submit.prevent="saveForm">
     <div class="container">
       <h1 class="title">Форма</h1>
+      <span class="title">Заполните форму</span>
+      <span class="title">Все поля обязательны</span>
       <div class="form-group">
         <label class="lab">Город:</label>
         <select v-model="selectedCity" @change="updateWorkshops">
