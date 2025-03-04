@@ -1,6 +1,7 @@
 <template>
   <div class="result-container">
     <h1 class="title">Результат</h1>
+    <span>Выводим результат подгружаем из Pinia</span>
     <div v-if="formData">
       <p><strong>Город:</strong> {{ cityName }}</p>
       <p><strong>Цех:</strong> {{ workshopName }}</p>
